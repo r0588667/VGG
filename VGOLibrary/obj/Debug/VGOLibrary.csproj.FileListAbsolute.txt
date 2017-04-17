@@ -1,0 +1,13 @@
+C:\Users\LW\Source\Repos\vgo\boids\VGOLibrary\bin\Debug\VGOLibrary.dll
+C:\Users\LW\Source\Repos\vgo\boids\VGOLibrary\bin\Debug\VGOLibrary.pdb
+C:\Users\LW\Source\Repos\vgo\boids\VGOLibrary\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\LW\Source\Repos\vgo\boids\VGOLibrary\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+C:\Users\LW\Source\Repos\vgo\boids\VGOLibrary\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Users\LW\Source\Repos\vgo\boids\VGOLibrary\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.dll
+C:\Users\LW\Source\Repos\vgo\boids\VGOLibrary\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\LW\Source\Repos\vgo\boids\VGOLibrary\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\LW\Source\Repos\vgo\boids\VGOLibrary\bin\Debug\Microsoft.Practices.Unity.xml
+C:\Users\LW\Source\Repos\vgo\boids\VGOLibrary\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
+C:\Users\LW\Source\Repos\vgo\boids\VGOLibrary\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
+C:\Users\LW\Source\Repos\vgo\boids\VGOLibrary\obj\Debug\VGOLibrary.dll
+C:\Users\LW\Source\Repos\vgo\boids\VGOLibrary\obj\Debug\VGOLibrary.pdb

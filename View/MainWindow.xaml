@@ -1,0 +1,41 @@
+﻿<Window x:Class="View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow" Height="720" Width="1280"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Background="Blue" Height="75">
+            <Button Width="100" VerticalAlignment="Stretch">Add Boid</Button>
+            <Button Width="100" VerticalAlignment="Stretch">Remove Boid</Button>
+            <Button Command="{Binding Exit}" Width="100" VerticalAlignment="Stretch">Click To Exit</Button>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Background="Black" Width="75">
+            <Label>Boid Speed</Label>
+            <TextBox></TextBox>
+        </StackPanel>
+        <Viewbox Stretch="Fill">
+                <ItemsControl ItemsSource="{Binding Simulation.World.Population}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas Width="1500" Height="1000" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="{x:Type ContentPresenter}">
+                        <Setter Property="Canvas.Left" Value="{Binding Position.Value.X}" />
+                        <Setter Property="Canvas.Top" Value="{Binding Position.Value.Y}" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Ellipse Fill="Red"  Width="25" Height="25" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DockPanel>
+</Window>
