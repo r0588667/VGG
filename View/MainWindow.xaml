@@ -6,19 +6,32 @@
         Title="MainWindow" Height="720" Width="1280"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        WindowState="Maximized">
+        WindowState="Maximized"
+		FontFamily="Verdana Bold">
     <DockPanel>
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Background="Blue" Height="75">
-            <Button Width="100" VerticalAlignment="Stretch">Add Boid</Button>
-            <Button Width="100" VerticalAlignment="Stretch">Remove Boid</Button>
-            <Button Command="{Binding Exit}" Width="100" VerticalAlignment="Stretch">Click To Exit</Button>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Background="#394648" Height="75">
+			<Button Width="100" VerticalAlignment="Stretch" Background="#394648" Foreground="#F8E9E9" BorderBrush="#F8E9E9">Add Boid</Button>
+			<Button Width="100" VerticalAlignment="Stretch" Background="#394648" Foreground="#F8E9E9" BorderBrush="#F8E9E9">Remove Boid</Button>
+			<Button Command="{Binding Exit}" Width="100" VerticalAlignment="Stretch" Background="#394648" Foreground="#F8E9E9" BorderBrush="#F8E9E9">Click To Exit</Button>
         </StackPanel>
-        <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Background="Black" Width="75">
-            <Label>Boid Speed</Label>
-            <TextBox></TextBox>
+        <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Background="#69995D" Width="100">
+            <Border BorderBrush="Black" BorderThickness="0 0 0 1">
+                <Grid>
+                    <Label Foreground="#F8E9E9" Margin="0 2 0 0">Boid Speed</Label>
+                    <Slider Margin="0 25 0 0"></Slider>
+                </Grid>
+            </Border>
+            <Label Foreground="#F8E9E9">Some Text</Label>
+            <Slider></Slider>
+            <Label Foreground="#F8E9E9">Some Text</Label>
+            <Slider></Slider>
+            <Label Foreground="#F8E9E9">Some Text</Label>
+            <Slider></Slider>
         </StackPanel>
         <Viewbox Stretch="Fill">
-                <ItemsControl ItemsSource="{Binding Simulation.World.Population}">
+			<Viewbox.Resources>
+			</Viewbox.Resources>
+            <ItemsControl ItemsSource="{Binding Simulation.World.Population}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Canvas Width="1500" Height="1000" />
