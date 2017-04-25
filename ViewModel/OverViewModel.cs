@@ -16,16 +16,21 @@ namespace ViewModel
     {
         public OverViewModel()
         {
+            timer = ServiceLocator.Current.GetInstance<ITimerService>();
+            timer.Tick += Timer_Tick;
+            timer.Start(new TimeSpan(0, 0, 0,0,0900));
             this.Simulation = new Simulation();
             this.Simulation.Species[0].CreateBoid(new Vector2D(50, 50));
+            this.Simulation.Species[1].CreateBoid(new Vector2D(60, 60));
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public Simulation Simulation { get; }
 
-        public void updateSimulation()
+        private void Timer_Tick(ITimerService obj)
         {
-            Simulation.Update(0.2);
+                Simulation.Update(0.2);
         }
+        private ITimerService timer;
     }
 }
 

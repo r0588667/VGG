@@ -30,24 +30,20 @@ namespace View
             container.RegisterType<ITimerService, TimerService>();
 			UnityServiceLocator locator = new UnityServiceLocator(container);
 			ServiceLocator.SetLocatorProvider(() => locator);
+            /*
             var timer = ServiceLocator.Current.GetInstance<ITimerService>();
             timer.Tick += Timer_Tick;
-            timer.Start(new TimeSpan(0, 0, 0, 0, 100));
+            timer.Start(new TimeSpan(0, 0, 0,0,100));
+            */
 			var mainWindow = new MainWindow();
-            mainWindow.DataContext = new OverViewModel();
-            var exitViewModel = new ExitViewModel();
-            exitViewModel.ApplicationExit += ExitViewModel_ApplicationExit;
-            mainWindow.DataContext = exitViewModel;
+            MainViewModel mvm = new MainViewModel();
+            mainWindow.DataContext = mvm;
+           mvm.evm.ApplicationExit += ExitViewModel_ApplicationExit;
             mainWindow.Show();
         }
         private void ExitViewModel_ApplicationExit()
         {
             Application.Current.Shutdown();
-        }
-
-        private void Timer_Tick(ITimerService obj)
-        {
-            ServiceLocator.Current.GetInstance<OverViewModel>().updateSimulation();
         }
 	}
 }

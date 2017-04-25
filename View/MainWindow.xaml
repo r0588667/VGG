@@ -12,7 +12,7 @@
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Background="#394648" Height="75">
 			<Button Width="100" VerticalAlignment="Stretch" Background="#394648" Foreground="#F8E9E9" BorderBrush="#F8E9E9">Add Boid</Button>
 			<Button Width="100" VerticalAlignment="Stretch" Background="#394648" Foreground="#F8E9E9" BorderBrush="#F8E9E9">Remove Boid</Button>
-			<Button Command="{Binding Exit}" Width="100" VerticalAlignment="Stretch" Background="#394648" Foreground="#F8E9E9" BorderBrush="#F8E9E9">Click To Exit</Button>
+			<Button Command="{Binding evm.Exit}" Width="100" VerticalAlignment="Stretch" Background="#394648" Foreground="#F8E9E9" BorderBrush="#F8E9E9">Click To Exit</Button>
         </StackPanel>
         <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Background="#69995D" Width="100">
             <Border BorderBrush="Black" BorderThickness="0 0 0 1">
@@ -28,27 +28,29 @@
             <Label Foreground="#F8E9E9">Some Text</Label>
             <Slider></Slider>
         </StackPanel>
-        <Viewbox Stretch="Fill">
-			<Viewbox.Resources>
-			</Viewbox.Resources>
-            <ItemsControl ItemsSource="{Binding Simulation.World.Population}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <Canvas Width="1500" Height="1000" />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemContainerStyle>
-                    <Style TargetType="{x:Type ContentPresenter}">
-                        <Setter Property="Canvas.Left" Value="{Binding Position.Value.X}" />
-                        <Setter Property="Canvas.Top" Value="{Binding Position.Value.Y}" />
-                    </Style>
-                </ItemsControl.ItemContainerStyle>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Ellipse Fill="Red"  Width="25" Height="25" />
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </Viewbox>
+        <Border Background="AntiqueWhite">
+            <Viewbox Stretch="Fill">
+                <Viewbox.Resources>
+                </Viewbox.Resources>
+                <ItemsControl ItemsSource="{Binding ovm.Simulation.World.Population}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Canvas Width="1500" Height="1000" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemContainerStyle>
+                        <Style TargetType="{x:Type ContentPresenter}">
+                            <Setter Property="Canvas.Left" Value="{Binding Position.Value.X}" />
+                            <Setter Property="Canvas.Top" Value="{Binding Position.Value.Y}" />
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Ellipse Fill="Red"  Width="25" Height="25" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Viewbox>
+        </Border>
     </DockPanel>
 </Window>

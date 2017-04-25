@@ -36,6 +36,7 @@ namespace ViewModel
                 evm.ApplicationExit?.Invoke();
             }
             private ExitViewModel evm;
+
         }
     }
 }
