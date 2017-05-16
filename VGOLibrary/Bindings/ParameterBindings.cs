@@ -19,7 +19,7 @@ namespace Bindings
 
         public Cell<T> Read<T>(Parameter<T> parameter)
         {
-            throw new InvalidOperationException("Unknown parameter");
+           throw new InvalidOperationException("Unknown parameter");
         }
 
         public IEnumerable<IParameter> Parameters

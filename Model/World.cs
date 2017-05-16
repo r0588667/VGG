@@ -19,6 +19,7 @@ namespace Model
         {
             this.Population = new ObservableCollection<Boid>();
             this.Bindings = new ParameterBindings("World").Initialize(Width).Initialize(Height);
+            
         }
 
         public ObservableCollection<Boid> Population { get; }

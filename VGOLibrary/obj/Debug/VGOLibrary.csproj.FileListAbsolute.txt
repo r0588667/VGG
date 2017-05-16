@@ -22,6 +22,5 @@ C:\Users\LW\Source\Repos\VGG2\VGOLibrary\bin\Debug\Microsoft.Practices.ServiceLo
 C:\Users\LW\Source\Repos\VGG2\VGOLibrary\bin\Debug\Microsoft.Practices.Unity.xml
 C:\Users\LW\Source\Repos\VGG2\VGOLibrary\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
 C:\Users\LW\Source\Repos\VGG2\VGOLibrary\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
-C:\Users\LW\Source\Repos\VGG2\VGOLibrary\obj\Debug\VGOLibrary.csprojResolveAssemblyReference.cache
 C:\Users\LW\Source\Repos\VGG2\VGOLibrary\obj\Debug\VGOLibrary.dll
 C:\Users\LW\Source\Repos\VGG2\VGOLibrary\obj\Debug\VGOLibrary.pdb

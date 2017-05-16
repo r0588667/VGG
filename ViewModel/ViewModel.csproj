@@ -56,10 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExitViewModel.cs" />
+    <Compile Include="AddBoidFactory.cs" />
+    <Compile Include="Commands\AddBoidCommand.cs" />
+    <Compile Include="Commands\PauseCommand.cs" />
     <Compile Include="Interfaces\ITimerService.cs" />
     <Compile Include="MainViewModel.cs" />
-    <Compile Include="OverViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

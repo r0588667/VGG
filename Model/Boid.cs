@@ -23,7 +23,7 @@ namespace Model
             this.Bindings = new ParameterBindings("Boid", species.Bindings);
         }
 
-        public ParameterBindings Bindings { get; }
+        public ParameterBindings Bindings { get; set; }
 
         public World World { get; }
 
@@ -35,7 +35,13 @@ namespace Model
 
         public IArtificialIntelligence AI { get; }
 
-        public void Update(double dt)
+
+        public void setBinding(ParameterBindings b)
+         {
+                Bindings = b;
+         }
+
+            public void Update(double dt)
         {
             var maximumAcceleration = Bindings.Read(BoidSpecies.MaximumAcceleration).Value;
             var maximumSpeed = Bindings.Read(BoidSpecies.MaximumSpeed).Value;
@@ -46,7 +52,7 @@ namespace Model
 
             BounceOffWalls();
         }
-
+    
         private void BounceOffWalls()
         {
             var boid = this;
