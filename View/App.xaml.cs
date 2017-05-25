@@ -33,10 +33,10 @@ namespace View
 			var mainWindow = new MainWindow();
             MainViewModel mvm = new MainViewModel();
             mainWindow.DataContext = mvm;
-            mvm.ApplicationExit += ExitViewModel_ApplicationExit;
+            mvm.ApplicationExit += ApplicationExit;
             mainWindow.Show();
         }
-        private void ExitViewModel_ApplicationExit()
+        private void ApplicationExit()
         {
             Application.Current.Shutdown();
         }

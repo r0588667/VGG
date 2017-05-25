@@ -24,6 +24,8 @@ namespace View
     /// </summary>
     public partial class MainWindow : Window
     {
+        public bool OptionPanelIsVisible = false;
+        public bool isRandomlyPlacement = true;
         public MainWindow()
         {
 		
@@ -41,8 +43,53 @@ namespace View
              timer.Start();
             */
         }
+
+        private void ChangeWindowState(object sender, RoutedEventArgs e)
+        {
+            if (OptionPanelIsVisible)
+            {
+                LeftOptionsPanel.Visibility = Visibility.Collapsed;
+                RightOptionsPanel.Visibility = Visibility.Collapsed;
+                OptionPanelIsVisible = false;
+            }
+            else
+            {
+                LeftOptionsPanel.Visibility = Visibility.Visible;
+                RightOptionsPanel.Visibility = Visibility.Visible;
+                OptionPanelIsVisible = true;
+            }
+        }
+
+        private void ChangePlacement(object sender, RoutedEventArgs e)
+        {
+            if (isRandomlyPlacement)
+            {
+                PlacementButton.Content = "RandomPlace";
+                isRandomlyPlacement = false;
+            }
+            else
+            {
+                PlacementButton.Content = "StaticPlace";
+                isRandomlyPlacement = true;
+            }
+        }
+
+        private void RandomColor(object sender, RoutedEventArgs e)
+        {
+            double b = r.Next(0, 255);
+            byte b1 = Convert.ToByte(b);
+            b = r.Next(0, 255);
+            byte b2 = Convert.ToByte(b);
+            b = r.Next(0, 255);
+            byte b3 = Convert.ToByte(b);
+            SolidColorBrush a = new SolidColorBrush(Color.FromRgb(b1,b2,b3));
+            LeftOptionsPanel.Background = a;
+            RightOptionsPanel.Background = a;
+        }
+        private Random r = new Random();
+
         /*
-        public Simulation Simulation { get; }
-        */
+public Simulation Simulation { get; }
+*/
     }
 }

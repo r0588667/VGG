@@ -10,10 +10,15 @@ namespace ViewModel.SubViewModels
 {
     public class AddBoidCommand : ICommand
     {
-            public MainViewModel _mvm;
+            private int x { get; set; }
+            private int y { get; set; }
+            private bool isRandomPlacement { get; set; }
+        public MainViewModel _mvm;
             public AddBoidCommand(MainViewModel mvm)
             {
                 _mvm = mvm;
+                this.x = x;
+                this.y = y;
             }
             public event EventHandler CanExecuteChanged;
 
@@ -24,7 +29,8 @@ namespace ViewModel.SubViewModels
 
             public void Execute(object parameter)
             {
-                AddBoidFactory.handleBoid(_mvm, (string) parameter);
+                AddBoidFactory.handleBoid(_mvm, (string) parameter,_mvm.X,_mvm.Y);
+                _mvm.setXAndY();
             }
         }
 }

@@ -12,36 +12,58 @@ using ViewModel.Interfaces;
 using Microsoft.Practices.ServiceLocation;
 using Mathematics;
 using ViewModel.Commands;
+using ViewModel.Slider;
+using System.ComponentModel;
+using View;
 
 namespace ViewModel
 {
-    public class MainViewModel
+    public class MainViewModel : INotifyPropertyChanged
     {
-        //public Cell<double> Speed { get; set; }
 
         public Simulation Simulation { get; set; }
 
         public ICommand Add { get; set; }
         public ICommand Exit { get; set; }
         public ICommand Pause { get; set; }
+        public ICommand ChangePlacement { get; set; }
 
-        public String WindowState { get; set; }
 
+        public BooleanPropertyChanged Test { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
+        public bool isRandomPlacement { get; set; }
         public event Action ApplicationExit;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public ITimerService timer { get; set; }
-
+        public SliderHandler Sliders { get; set; }
 
         public MainViewModel()
         {
-            WindowState = "Maximized";
             timer = ServiceLocator.Current.GetInstance<ITimerService>();
             timer.Tick += Timer_Tick;
             timer.Start(new TimeSpan(0, 0, 0, 0, 001));
             initializeSimulation();
+            X = 400;
+            Y = 400;
+            isRandomPlacement = false;
+            this.setXAndY();
+            Test = new BooleanPropertyChanged(true);
             Add = new AddBoidCommand(this);
             Exit = new ExitCommand(this);
             Pause = new PauseCommand(this);
+            Sliders = new SliderHandler(this);
+            ChangePlacement = new PlacementCommand(this);
+        }
+
+        protected void OnPropertyChanged(string name)
+        {
+            if(PropertyChanged != null)
+            {
+                string test = name;
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
         }
 
         private void initializeSimulation()
@@ -57,20 +79,20 @@ namespace ViewModel
             Simulation.Update(0.02);
         }
 
-
-
-        /*
-        public Action speedup()
+        public void setXAndY()
         {
-            var bindings = Simulation.Species.First().Bindings;
-            var pars = bindings.Parameters;
-            var speed = pars.Where(c => c.Id == "Maximum Speed").Single();
-            var rangedDoubleSpeed = speed as RangedDoubleParameter;
-            var speedValue = bindings.Read(rangedDoubleSpeed);
-            speedValue.Value = Speed.Value;
-            return null;
+            if (isRandomPlacement)
+            {
+                Random randomNum = new Random();
+                X = randomNum.Next(1, 800);
+                Y = randomNum.Next(1, 900);
+            }
+            else
+            {
+                X = 400;
+                Y = 400;
+            }
         }
-        */
         private class ExitCommand : ICommand
         {
             public ExitCommand(MainViewModel _mvm)

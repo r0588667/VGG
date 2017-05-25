@@ -35,6 +35,7 @@ namespace Model
 
         public IArtificialIntelligence AI { get; }
 
+        public String Test { get { return this.Test; } set { this.Test = "ABC"; } }
 
         public void setBinding(ParameterBindings b)
          {

@@ -24,3 +24,4 @@ C:\Users\LW\Source\Repos\VGG2\VGOLibrary\bin\Debug\Microsoft.Practices.Unity.Con
 C:\Users\LW\Source\Repos\VGG2\VGOLibrary\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
 C:\Users\LW\Source\Repos\VGG2\VGOLibrary\obj\Debug\VGOLibrary.dll
 C:\Users\LW\Source\Repos\VGG2\VGOLibrary\obj\Debug\VGOLibrary.pdb
+C:\Users\LW\Source\Repos\VGG2\VGOLibrary\obj\Debug\VGOLibrary.csprojResolveAssemblyReference.cache

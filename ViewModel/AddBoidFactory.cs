@@ -9,7 +9,7 @@ namespace ViewModel
     public static class AddBoidFactory
     {
 
-        public static void handleBoid(MainViewModel mvm, String type)
+        public static void handleBoid(MainViewModel mvm, String type,int x,int y)
         {
             var inttype = 0;
             if (type.Equals("Hunter"))
@@ -28,7 +28,7 @@ namespace ViewModel
             {
                 // throw new Exception("Invalid Boid");
             }
-            mvm.Simulation.Species[inttype].CreateBoid(new Mathematics.Vector2D(400, 400));
+            mvm.Simulation.Species[inttype].CreateBoid(new Mathematics.Vector2D(x,y));
         }
     }
 }
