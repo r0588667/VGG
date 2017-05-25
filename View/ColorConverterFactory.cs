@@ -18,11 +18,13 @@ namespace View
             }
             else if (species.Equals("hunter"))
             {
-                return Brushes.Red;
+                return Brushes.Firebrick;
             }
             else
             {
-                return Brushes.Blue;
+                var converter = new System.Windows.Media.BrushConverter();
+                var brush = (Brush)converter.ConvertFromString("#AAB8D3");
+                return brush;
             }
         }
     }

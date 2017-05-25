@@ -14,18 +14,15 @@
         <local:BuildConverter x:Key="backconv"/>
         <local:WindowStateConverter x:Key="windowStateConverter"/>
     </Window.Resources>
-    <DockPanel>
+    <DockPanel Background="#BAF2D8">
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Background="#394648" Height="75">
-			<Button Command="{Binding Add}" CommandParameter="Hunter" Width="100" VerticalAlignment="Stretch" Background="#394648" Foreground="#F8E9E9" BorderBrush="#F8E9E9">Add Hunter</Button>
-            <Button Command="{Binding Add}" CommandParameter="Prey" Width="100" VerticalAlignment="Stretch" Background="#394648" Foreground="#F8E9E9" BorderBrush="#F8E9E9">Add Prey</Button>
-            <Button Command="{Binding Add}" CommandParameter="PETA" Width="100" VerticalAlignment="Stretch" Background="#394648" Foreground="#F8E9E9" BorderBrush="#F8E9E9">Add PETA</Button>
             <Button Command="{Binding Pause}" Width="100" VerticalAlignment="Stretch" Background="#394648" Foreground="#F8E9E9" BorderBrush="#F8E9E9">Start/Pause</Button>
             <Button Name="PlacementButton" Click="ChangePlacement" Command="{Binding ChangePlacement}" Width="100" VerticalAlignment="Stretch" Background="#394648" Foreground="#F8E9E9" BorderBrush="#F8E9E9">StaticPlace</Button>
             <Button Click="ChangeWindowState" Width="100" VerticalAlignment="Stretch" Background="#394648" Foreground="#F8E9E9" BorderBrush="#F8E9E9">Options</Button>
             <Button Click="RandomColor" Width="100" VerticalAlignment="Stretch" Background="#394648" Foreground="#F8E9E9" BorderBrush="#F8E9E9">RandomColor</Button>
             <Button Command="{Binding Exit}" Width="100" VerticalAlignment="Stretch" Background="#394648" Foreground="#F8E9E9" BorderBrush="#F8E9E9">Exit</Button>
         </StackPanel>
-        <StackPanel Name="LeftOptionsPanel" DockPanel.Dock="Left" Orientation="Vertical" Background="#69995D" Width="200" Visibility="Collapsed" >
+        <StackPanel Name="LeftOptionsPanel" DockPanel.Dock="Left" Orientation="Vertical" Background="#AAB8D3" Width="200" Visibility="Collapsed" >
             <ComboBox ItemsSource="{Binding Sliders.AllSpeciesNames}" SelectedItem="{Binding Sliders.FirstSelectedValue,Mode=TwoWay}">
             </ComboBox>
             <ItemsControl ItemsSource="{Binding Sliders.Parameters}">
@@ -40,10 +37,18 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </StackPanel>
-        <StackPanel Name="RightOptionsPanel" DockPanel.Dock="Right" Orientation="Vertical" Background="#69995D" Width="200" Visibility="Collapsed">
-            
+        <StackPanel Name="RightOptionsPanel" DockPanel.Dock="Right" Orientation="Vertical" Background="#C8DD80" Width="100" Visibility="Collapsed">
+            <TextBlock HorizontalAlignment="Center" FontSize="20" Foreground="White">Add</TextBlock>
+            <ItemsControl ItemsSource="{Binding Sliders.AllSpeciesNames}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Command="{Binding Add}" CommandParameter="{Binding Path=.}" HorizontalAlignment="Stretch" Height="75" Background="{Binding Path=., Converter={StaticResource colorconv}}" Foreground="#F8E9E9" BorderBrush="#F8E9E9">
+                            <TextBlock Text="{Binding Path=.}"></TextBlock></Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </StackPanel>
-        <Border Background="AntiqueWhite" BorderBrush="Blue" BorderThickness="10 10 10 10">
+        <Border Background="#E1DDD2" BorderBrush="#DACE54" BorderThickness="10 10 10 10">
             <Viewbox Stretch="Fill">
                 <Viewbox.Resources>
                 </Viewbox.Resources>
@@ -61,15 +66,7 @@
                     </ItemsControl.ItemContainerStyle>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Ellipse Fill="{Binding Species.Name, Converter={StaticResource colorconv}}" Width="25" Height="25">
-                                <!--
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="MouseUp">
-                                        <i:InvokeCommandAction Command="{Binding Control}"/>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                                !-->
-                            </Ellipse>
+                            <Ellipse Fill="{Binding Species.Name, Converter={StaticResource colorconv}}" Width="25" Height="25"/>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
