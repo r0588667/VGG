@@ -1,18 +1,15 @@
 ﻿    <Window x:Class="View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         Title="MainWindow" Height="720" Width="1280"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        WindowState="{Binding WindowState}"
+        WindowState="Maximized"
 		FontFamily="Verdana Bold">
     <Window.Resources>
         <local:SpeciesToColorConverter x:Key="colorconv"/>
         <local:BuildConverter x:Key="backconv"/>
-        <local:WindowStateConverter x:Key="windowStateConverter"/>
     </Window.Resources>
     <DockPanel Background="#BAF2D8">
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Background="#394648" Height="75">
@@ -42,7 +39,7 @@
             <ItemsControl ItemsSource="{Binding Sliders.AllSpeciesNames}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Command="{Binding Add}" CommandParameter="{Binding Path=.}" HorizontalAlignment="Stretch" Height="75" Background="{Binding Path=., Converter={StaticResource colorconv}}" Foreground="#F8E9E9" BorderBrush="#F8E9E9">
+                        <Button Command="{Binding DataContext.Add, RelativeSource={RelativeSource AncestorType=local:MainWindow}}" CommandParameter="{Binding Path=.}" HorizontalAlignment="Stretch" Height="75" Background="{Binding Path=., Converter={StaticResource colorconv}}" Foreground="#F8E9E9" BorderBrush="#F8E9E9">
                             <TextBlock Text="{Binding Path=.}"></TextBlock></Button>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

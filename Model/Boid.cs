@@ -2,11 +2,6 @@
 using Model.AI;
 using Bindings;
 using Model.Species;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Mathematics;
 
 namespace Model
@@ -35,7 +30,6 @@ namespace Model
 
         public IArtificialIntelligence AI { get; }
 
-        public String Test { get { return this.Test; } set { this.Test = "ABC"; } }
 
         public void setBinding(ParameterBindings b)
          {

@@ -25,15 +25,8 @@ namespace ViewModel.Commands
 
         public void Execute(object parameter)
         {
-            if (!paused)
-            {
-                mvm.timer.Start(new TimeSpan(10, 0, 0, 0, 0));
-            }
-            else
-            {
-                mvm.timer.Start(new TimeSpan(0, 0, 0, 0, 001));
-            }
-
+            TimeSpan TimerTimeSpan = paused ? new TimeSpan(0,0,0,0,001) : new TimeSpan(10,0,0,0,0);
+            mvm.timer.Start(TimerTimeSpan);
             paused = paused ? false : true;
         }
 

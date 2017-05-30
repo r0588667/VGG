@@ -71,11 +71,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BuildConverter.cs" />
-    <Compile Include="ColorConverterFactory.cs" />
-    <Compile Include="SpeciesToColorConverter.cs" />
+    <Compile Include="Converters\BuildConverter.cs" />
+    <Compile Include="Converters\ColorConverterFactory.cs" />
+    <Compile Include="Converters\SpeciesToColorConverter.cs" />
     <Compile Include="Timer\TimerService.cs" />
-    <Compile Include="WindowStateConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

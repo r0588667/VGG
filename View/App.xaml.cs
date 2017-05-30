@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using ViewModel;
 using ViewModel.Interfaces;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
-using Mathematics;
-using Model;
 using View.Timer;
-using System.Windows.Threading;
 
 namespace View
 {

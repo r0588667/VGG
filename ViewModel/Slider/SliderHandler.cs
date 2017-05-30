@@ -36,12 +36,8 @@ namespace ViewModel.Slider
         public SliderHandler(MainViewModel mvm)
         {
             _mvm = mvm;
-            AllSpecies = new ObservableCollection<BoidSpecies>(_mvm.Simulation.Species);
             AllSpeciesNames = new ObservableCollection<string>();
-            Parameters = new ObservableCollection<SliderParameter>();
-            AllSpeciesNames.Add(AllSpecies[0].Name);
-            AllSpeciesNames.Add(AllSpecies[1].Name);
-            AllSpeciesNames.Add(AllSpecies[2].Name);
+            setNamesForBoidSpecies();
         }
 
         private void updateParameters()
@@ -72,6 +68,13 @@ namespace ViewModel.Slider
             }
         }
 
+        private void setNamesForBoidSpecies()
+        {
+            foreach(BoidSpecies b in _mvm.Simulation.Species)
+            {
+                AllSpeciesNames.Add(b.Name);
+            }
+        }
         protected void NotifyPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)

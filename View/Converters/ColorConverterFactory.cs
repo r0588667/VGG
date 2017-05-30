@@ -10,7 +10,7 @@ namespace View
     public class ColorConverterFactory
     {
 
-        public static object handleColor(String species)
+        public static object HandleColor(String species)
         {
             if (species.Equals("prey"))
             {
@@ -22,10 +22,15 @@ namespace View
             }
             else
             {
-                var converter = new System.Windows.Media.BrushConverter();
-                var brush = (Brush)converter.ConvertFromString("#AAB8D3");
-                return brush;
+                return Brushes.Blue;
             }
+        }
+
+        private static Brush GetBrushColorFromHex(String hexCode)
+        {
+            var converter = new System.Windows.Media.BrushConverter();
+            var brush = (Brush)converter.ConvertFromString(hexCode);
+            return brush;
         }
     }
 }

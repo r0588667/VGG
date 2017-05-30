@@ -28,14 +28,7 @@ namespace ViewModel.Commands
         public void Execute(object parameter)
         {
             _mvm.setXAndY();
-            if (_mvm.isRandomPlacement)
-            {
-                _mvm.isRandomPlacement = false;
-            }
-            else
-            {
-                _mvm.isRandomPlacement = true;
-            }
+            _mvm.isRandomPlacement = _mvm.isRandomPlacement ? false : true;
         }
     }
 }

@@ -1,24 +1,16 @@
-﻿using Cells;
-using Model;
+﻿using Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using ViewModel.SubViewModels;
-using Model.Species;
 using ViewModel.Interfaces;
 using Microsoft.Practices.ServiceLocation;
 using Mathematics;
 using ViewModel.Commands;
 using ViewModel.Slider;
-using System.ComponentModel;
-using View;
 
 namespace ViewModel
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel
     {
 
         public Simulation Simulation { get; set; }
@@ -28,13 +20,10 @@ namespace ViewModel
         public ICommand Pause { get; set; }
         public ICommand ChangePlacement { get; set; }
 
-
-        public BooleanPropertyChanged Test { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
         public bool isRandomPlacement { get; set; }
         public event Action ApplicationExit;
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public ITimerService timer { get; set; }
         public SliderHandler Sliders { get; set; }
@@ -49,21 +38,11 @@ namespace ViewModel
             Y = 400;
             isRandomPlacement = false;
             this.setXAndY();
-            Test = new BooleanPropertyChanged(true);
             Add = new AddBoidCommand(this);
             Exit = new ExitCommand(this);
             Pause = new PauseCommand(this);
             Sliders = new SliderHandler(this);
             ChangePlacement = new PlacementCommand(this);
-        }
-
-        protected void OnPropertyChanged(string name)
-        {
-            if(PropertyChanged != null)
-            {
-                string test = name;
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
         }
 
         private void initializeSimulation()

@@ -1,9 +1,4 @@
-﻿using Mathematics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Input;
 
 namespace ViewModel.SubViewModels
@@ -12,7 +7,6 @@ namespace ViewModel.SubViewModels
     {
             private int x { get; set; }
             private int y { get; set; }
-            private bool isRandomPlacement { get; set; }
         public MainViewModel _mvm;
             public AddBoidCommand(MainViewModel mvm)
             {

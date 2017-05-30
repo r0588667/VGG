@@ -5,29 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
+using System.Windows.Media;
 
 namespace View
 {
-    public class WindowStateConverter : IValueConverter
+    public class SpeciesToColorConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Boolean result = (bool)value;
-            if (!result)
-            {
-                
-                return "Collapsed";
-            }
-            else
-            {
-                return "Visible";
-            }
+            string species = value as string;
+            return ColorConverterFactory.HandleColor(species);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-
-            return "Collapsed";
+            throw new NotImplementedException();
         }
     }
 }

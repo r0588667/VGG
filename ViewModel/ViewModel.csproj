@@ -57,11 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddBoidFactory.cs" />
-    <Compile Include="BooleanPropertyChanged.cs" />
     <Compile Include="Commands\AddBoidCommand.cs" />
     <Compile Include="Commands\PauseCommand.cs" />
     <Compile Include="Commands\PlacementCommand.cs" />
-    <Compile Include="Commands\ShowOptions.cs" />
     <Compile Include="Interfaces\ITimerService.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
